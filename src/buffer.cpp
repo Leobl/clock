@@ -51,11 +51,6 @@ namespace badgerdb {
  Increment the clockhand within the circular buffer pool .
 */
     void BufMgr::advanceClock() {
-
-        /* ============== */
-        /* YOUR CODE HERE */
-        /* ============== */
-
         if (++clockHand >= numBufs){ //increases clockHand
             clockHand=0; //clockHand set to initial value if a "circle" is completed
         }
@@ -67,11 +62,6 @@ namespace badgerdb {
  a new frame is the clock algorithm.
 */
     void BufMgr::allocBuf(FrameId & frame) {
-
-        /* ============== */
-        /* YOUR CODE HERE */
-        /* ============== */
-
         std::cout << "allocBuf" << std::endl;
         int counter = 0;
         int initial = clockHand;
@@ -115,11 +105,6 @@ namespace badgerdb {
  returns the Page.
 */
     void BufMgr::readPage(File* file, const PageId pageNo, Page*& page) {
-
-        /* ============== */
-        /* YOUR CODE HERE */
-        /* ============== */
-
         std::cout << "readPage" << std::endl;
 
         try{
@@ -150,10 +135,6 @@ namespace badgerdb {
  If the page is already unpinned throws a PageNotPinned exception.
 */
     void BufMgr::unPinPage(File* file, const PageId pageNo, const bool dirty) {
-
-        /* ============== */
-        /* YOUR CODE HERE */
-        /* ============== */
         std::cout << "unPinPage" << std::endl;
         try{
             FrameId frameNumb;
@@ -181,10 +162,6 @@ namespace badgerdb {
  Else if the frame is not valid then throws a BadBufferException.
 */
     void BufMgr::flushFile(const File* file) {
-
-        /* ============== */
-        /* YOUR CODE HERE */
-        /* ============== */
         std::cout << "flushFile" << std::endl;
         for (int i = 0; i < numBufs; ++i)
         {
@@ -211,10 +188,6 @@ namespace badgerdb {
  This function allocates a new page and reads it into the buffer pool.
 */
     void BufMgr::allocPage(File* file, PageId &pageNo, Page*& page) {
-
-        /* ============== */
-        /* YOUR CODE HERE */
-        /* ============== */
         std::cout << "allocPage" << std::endl;
         try{
             Page temp = file->allocatePage(); //allocate a new page
@@ -237,10 +210,6 @@ namespace badgerdb {
    and deleting it from the corresponding file
 */
     void BufMgr::disposePage(File* file, const PageId PageNo) {
-
-        /* ============== */
-        /* YOUR CODE HERE */
-        /* ============== */
         std::cout << "disposePage" << std::endl;
         try{
             FrameId framenumberino;
